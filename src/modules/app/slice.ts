@@ -1,10 +1,28 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { Connection } from '../../core/transport/Connection';
+import type { RootState } from '../redux/store';
+import { ConnectionStatus } from '../../core/transport/types/connectionStatus';
+
+const CHECK_CONNECTION_TIMEOUT_IN_MS = 100;
+
+const waitForConnection = (getState: () => RootState): Promise<void> => {
+    return new Promise((resolve) => {
+        const checkConnection = () => {
+            if(getState().subscriptions.wsConnectionStatus === ConnectionStatus.Connected) {
+                resolve()
+            } else {
+                setTimeout(checkConnection, CHECK_CONNECTION_TIMEOUT_IN_MS)
+            }
+        }
+        checkConnection();
+    });
+}
 
 export const bootstrapApp = createAsyncThunk("app/bootstrap",
     async(_, {_dispatch, _getState, extra}) => {
         const { connection } = extra as { connection: Connection}
         connection.connect();
+        await waitForConnection(getState as () => RootState)
         return true 
     }
 )
