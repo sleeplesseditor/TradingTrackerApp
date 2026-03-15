@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { Connection } from '../../core/transport/Connection';
-import type { RootState } from '../redux/store';
-import { ConnectionStatus } from '../../core/transport/types/connectionStatus';
-import { refDataLoad } from '../reference-data/slice';
-import { selectCurrencyPair } from '../selection/slice';
+import type { Connection } from '@core/transport/Connection';
+import { ConnectionStatus } from '@core/transport/types/ConnectionStatus';
+import type { RootState } from '@modules/redux/store';
+import { refDataLoad } from '@modules/reference-data/slice';
+import { selectCurrencyPair } from '@modules/selection/slice';
+import { candlesSubscribeToSymbol, tickerSubscribeToSymbol } from "@core/transport/slice";
 
 const CHECK_CONNECTION_TIMEOUT_IN_MS = 100;
+export const SUBSCRIPTION_TIMEOUT_IN_MS = 2000
+export const DEFAULT_TIMEFRAME = "1m";
 
 const waitForConnection = (getState: () => RootState): Promise<void> => {
     return new Promise((resolve) => {
@@ -26,7 +29,15 @@ export const bootstrapApp = createAsyncThunk("app/bootstrap",
         connection.connect();
         await waitForConnection(getState as () => RootState);
         const currencyPairs = await dispatch(refDataLoad()).unwrap();
-        dispatch(selectCurrencyPair({ currencyPair: currencyPairs[0] }))
+        dispatch(selectCurrencyPair({ currencyPair: currencyPairs[0] }));
+
+        currencyPairs.forEach((currencyPair: string) => {
+            setTimeout(() => {
+                dispatch(tickerSubscribeToSymbol({ symbol: currencyPair }));
+                dispatch(candlesSubscribeToSymbol({ symbol: currencyPair, timeframe: DEFAULT_TIMEFRAME }));
+            }, SUBSCRIPTION_TIMEOUT_IN_MS)
+        });
+
         return currencyPairs[0]; 
     }
 )

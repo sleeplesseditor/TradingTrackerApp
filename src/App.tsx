@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider, useDispatch } from 'react-redux';
-import getStore,{ type AppDispatch } from "./modules/redux/store";
-import { bootstrapApp } from './modules/app/slice';
+import getStore,{ type AppDispatch } from "@modules/redux/store";
+import { bootstrapApp } from '@modules/app/slice';
 
 const store = getStore();
 

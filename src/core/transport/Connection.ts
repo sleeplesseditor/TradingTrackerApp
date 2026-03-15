@@ -1,4 +1,4 @@
-import type { ConnectionProxy } from "./types/connectionProxy";
+import type { ConnectionProxy } from "./types/ConnectionProxy";
 
 export class Connection {
     constructor(private connectionProxy: ConnectionProxy) {}

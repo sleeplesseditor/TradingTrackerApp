@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { appBootstrapSlice } from "../app/slice";
-import { WsConnectionProxy } from "../../core/transport/WsConnectionProxy.ts";
-import { Connection } from "../../core/transport/Connection";
-import { changeConnectionStatus, subscriptionSlice } from "../../core/transport/slice";
-import { ConnectionStatus } from "../../core/transport/types/connectionStatus";
-import { refDataSlice } from "../reference-data/slice";
-import { selectionSlice } from "../selection/slice.ts";
+import { appBootstrapSlice } from "@modules/app/slice";
+import { WsConnectionProxy } from "@core/transport/WsConnectionProxy";
+import { Connection } from "@core/transport/Connection";
+import { changeConnectionStatus, subscriptionSlice } from "@core/transport/slice";
+import { ConnectionStatus } from "@core/transport/types/ConnectionStatus";
+import { refDataSlice } from "@modules/reference-data/slice";
+import { selectionSlice } from "@modules/selection/slice.ts";
 
 const connectionProxy = new WsConnectionProxy(
     import.meta.env["VITE_BITFINEX_WS_URL"] || "wss:api-pub.bitfinex.com/ws/2"
@@ -19,7 +19,7 @@ function createStore() {
             app: appBootstrapSlice.reducer,
             refData: refDataSlice.reducer,
             selection: selectionSlice.reducer,
-            subscription: subscriptionSlice.reducer,
+            subscriptions: subscriptionSlice.reducer,
         },
         middleware: (getDefaultMiddleware) => 
             getDefaultMiddleware({
@@ -53,5 +53,5 @@ export const getStore = () => {
 
 export default getStore
 
-export type RootState = ReturnType<typeof createStore["getState"]>;
-export type AppDispatch = ReturnType<typeof createStore["dispatch"]>;
+export type RootState = ReturnType<ReturnType<typeof createStore>["getState"]>;
+export type AppDispatch = ReturnType<typeof createStore>["dispatch"];
