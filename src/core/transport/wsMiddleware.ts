@@ -1,6 +1,12 @@
 import type { Middleware } from "@reduxjs/toolkit"
 import { Connection } from "./Connection";
-import { handleSubscriptionAcknowledge, handleTickerData } from '@core/transport/handlers';
+import { 
+    handleBookData,
+    handleCandlesData,
+    handleSubscriptionAcknowledge,
+    handleTickerData,
+    handleTradesData
+} from '@core/transport/handlers';
 import { Channel } from "./types/Channels";
 
 export const createWsMiddleware = (connection: Connection): Middleware => {
@@ -22,16 +28,16 @@ export const createWsMiddleware = (connection: Connection): Middleware => {
 
                 switch (subscription.channel) {
                     case Channel.TRADES:
-                        //handleTradesData(parsedData, subscription, store.dispatch)
+                        handleTradesData(parsedData, subscription, store.dispatch);
                         break;
                     case Channel.TICKER:
-                        handleTickerData(parsedData, subscription, store.dispatch)
+                        handleTickerData(parsedData, subscription, store.dispatch);
                         break;
                     case Channel.CANDLES:
-                        //handleCandlesData(parsedData, subscription, store.dispatch)
+                        handleCandlesData(parsedData, subscription, store.dispatch);
                         break;
                     case Channel.BOOK:
-                        //handleBookData(parsedData, subscription, store.dispatch)
+                        handleBookData(parsedData, subscription, store.dispatch)
                         break;
                     default:
                         console.warn("Unhandled channel:", subscription.channel)
