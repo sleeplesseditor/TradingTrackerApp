@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Provider, useDispatch } from 'react-redux';
 import getStore,{ type AppDispatch } from "@modules/redux/store";
 import { bootstrapApp } from '@modules/app/slice';
+import './styles/panelElements.scss';
 
 const store = getStore();
 
@@ -12,7 +13,23 @@ const AppContent = () => {
     dispatch(bootstrapApp())
   }, []);
 
-  return <h1>Hello...</h1>
+  return (
+    <div className="trading-tracker__container">
+      <div className="trading-tracker__content">
+        <div className="trading-tracker__header">Trading Tracker</div>
+        <div className="trading-tracker__tickers-panel">tickers</div>
+        <div className="trading-tracker__market-panel">market</div>
+        <div className="trading-tracker__trades-panel">trades</div>
+        <div className="trading-tracker__candles-panel">candles</div>
+        <div className="trading-tracker__book-panel">book</div>
+        <div className="trading-tracker__depth-panel">depth</div>
+        <div className="trading-tracker__footer">
+          <span>Latency</span>
+          <span>Diagnostic</span>
+        </div>
+      </div>
+    </div>
+  )
 } 
 
 function App() {
