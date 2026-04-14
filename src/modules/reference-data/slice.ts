@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface RefDataState {
   currencyPairs: string[]
@@ -9,7 +9,8 @@ const initialState: RefDataState = {
 };
 
 export const refDataLoad = createAsyncThunk("refData/load", async () => {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/currencyPairs.json`)
+    const response = await fetch(`${import.meta.env.BASE_URL}data/currencyPairs.json`);
+
     if (!response.ok) {
         throw new Error("Failed to load currency pairs")
     }
@@ -23,7 +24,7 @@ export const refDataSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(refDataLoad.fulfilled, (state, action) => {
-        state.currencyPairs = action.payload
+            state.currencyPairs = action.payload
         })
     },
 })

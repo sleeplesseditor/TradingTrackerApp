@@ -12,16 +12,17 @@ import { Channel } from "./types/Channels";
 export const createWsMiddleware = (connection: Connection): Middleware => {
     return (store) => {
         connection.onReceive((data) => {
-            const parsedData = JSON.parse(data)
+            const parsedData = JSON.parse(data);
             
-            if(parsedData === "subscribed") {
+            if(parsedData.event === "subscribed") {
                 handleSubscriptionAcknowledge(parsedData, store);
+                return;
             }
 
             if (Array.isArray(parsedData)) {
-                const [channelId] = parsedData
-                const subscription = store.getState().subscriptions[channelId]
-                
+                const [channelId] = parsedData;
+                const subscription = store.getState().subscriptions[channelId];
+
                 if (!subscription || parsedData[1] === "hb") {
                     return;
                 }

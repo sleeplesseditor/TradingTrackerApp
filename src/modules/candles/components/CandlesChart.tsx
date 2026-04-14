@@ -1,9 +1,10 @@
 import * as React from 'react';
-import type { Candle } from '@modules/candles/types';
+import type { Candle } from '@modules/candles/types/Candle';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { formatCurrencyPair } from "@modules/reference-data/utils";
-import "@theme/Highchart";
+import "@theme/HighChart";
+import './candlesChart.scss';
 
 export interface Props {
     candles: Candle[];
@@ -14,7 +15,7 @@ export interface Props {
 const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
     const [chartOptions, setChartOptions] = React.useState<Highcharts.Options>({
         time: {
-            useUTC: false
+            useUTC: false,
         },
         yAxis: [
             {
@@ -31,23 +32,24 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                     enabled: true,
                 },
             },
-                {
-                    labels: {
-                        align: "right",
-                        x: -3,
-                    },
-                    title: {
-                        text: "Volume",
-                    },
-                    top: "75%",
-                    height: "25%",
-                    offset: 0,
-                    lineWidth: 2,
+            {
+                labels: {
+                    align: "right",
+                    x: -3,
                 },
+                title: {
+                    text: "Volume",
+                },
+                top: "75%",
+                height: "25%",
+                offset: 0,
+                lineWidth: 2,
+            },
         ],
         series: [
             {
                 type: "candlestick",
+                // name: formatCurrencyPair(currencyPair),
                 data: [],
             },
             {
@@ -71,34 +73,36 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
 
             const volumes = candles
                 .map(({ timestamp, volume }) => [timestamp, volume])
-                .sort((a, b) => a[0]! - b[0]!)
+                .sort((a, b) => a[0]! - b[0]!);
 
             setChartOptions({
                 series: [
-                {
-                    type: "candlestick",
-                    name: formatCurrencyPair(currencyPair),
-                    data: ohlc,
-                },
-                {
-                    type: "column",
-                    data: volumes,
-                },
+                    {
+                        type: "candlestick",
+                        name: formatCurrencyPair(currencyPair),
+                        data: ohlc,
+                    },
+                    {
+                        type: "column",
+                        data: volumes,
+                    },
                 ],
                 plotOptions: {
-                candlestick: {
-                    color: "#FF264D",
-                    upColor: "#00AD08",
-                },
-                column: {
-                    color: "#4682b4",
-                    borderRadius: 0,
-                    borderWidth: 0,
-                },
+                    candlestick: {
+                        color: "#FF264D",
+                        upColor: "#00AD08",
+                    },
+                    column: {
+                        color: "#4682b4",
+                        borderRadius: 0,
+                        borderWidth: 0,
+                    },
                 },
             })
-            }
+        }
     }, [candles, currencyPair]);
+
+    console.log('CHART OPTIONS', chartOptions)
 
     return (
         <div className="trade-tracker__container candles-chart">

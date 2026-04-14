@@ -4,6 +4,8 @@ import getStore,{ type AppDispatch } from "@modules/redux/store";
 import { bootstrapApp } from '@modules/app/slice';
 import './styles/panelElements.scss';
 
+import CandlesChartContainer from '@modules/candles/components/CandlesChartContainer';
+
 const store = getStore();
 
 const AppContent = () => {
@@ -20,7 +22,9 @@ const AppContent = () => {
         <div className="trading-tracker__tickers-panel">tickers</div>
         <div className="trading-tracker__market-panel">market</div>
         <div className="trading-tracker__trades-panel">trades</div>
-        <div className="trading-tracker__candles-panel">candles</div>
+        <div className="trading-tracker__candles-panel">
+          <CandlesChartContainer />
+        </div>
         <div className="trading-tracker__book-panel">book</div>
         <div className="trading-tracker__depth-panel">depth</div>
         <div className="trading-tracker__footer">

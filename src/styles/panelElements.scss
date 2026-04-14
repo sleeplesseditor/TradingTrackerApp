@@ -4,7 +4,7 @@
     &__container {
         position: absolute;
         inset: 0;
-        background-color: variables.$white;
+        background-color: variables.$backgroundColor;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
@@ -65,7 +65,7 @@
         color: variables.$white;
         position: relative;
         overflow: hidden; // keeps animation inside this component
-        font-family: FiraSans-MediumItalic;
+        font-family: Gill Sans Extrabold, sans-serif;
         padding: 0 0 0 10px;
         font-size: 28px;
 

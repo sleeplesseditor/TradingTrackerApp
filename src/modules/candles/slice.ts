@@ -1,15 +1,15 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Candle, CandleTuple } from "./types/Candle";
 
-const MAX_CANDLES = import.meta.env["VITE_MAX_CANDLES"]
+const MAX_CANDLES = import.meta.env["VITE_MAX_CANDLES"];
 
 type SymbolState = Candle[]
 
 export interface CandlesState {
   [currencyPair: string]: SymbolState
-}
+};
 
-const initialState: CandlesState = {}
+const initialState: CandlesState = {};
 
 export const candleSlice = createSlice({
     name: "candles",
@@ -35,9 +35,9 @@ export const candleSlice = createSlice({
             state,
             action: PayloadAction<{ lookupKey: string; candle: CandleTuple }>
         ) => {
-            const { lookupKey, candle } = action.payload
-            const [timestamp, open, close, high, low, volume] = candle
-            const candleIndex = state[lookupKey]?.findIndex((c) => c.timestamp === timestamp) ?? -1
+            const { lookupKey, candle } = action.payload;
+            const [timestamp, open, close, high, low, volume] = candle;
+            const candleIndex = state[lookupKey]?.findIndex((c) => c.timestamp === timestamp) ?? -1;
             const newOrUpdatedCandle = {
                 timestamp,
                 open,
@@ -45,7 +45,7 @@ export const candleSlice = createSlice({
                 high,
                 low,
                 volume,
-            }
+            };
 
             if (candleIndex >= 0) {
                 // Update existing candle

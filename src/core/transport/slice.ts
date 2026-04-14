@@ -57,7 +57,7 @@ const createSubscribeThunk = (channel: ChannelTypes, actionType: SubscriptionAct
                 console.warn("Unhandled channel:", channel)
         }
 
-        connection.send(msg)
+        connection.send(JSON.stringify(msg))
         return msg
 });
 
@@ -102,16 +102,16 @@ export const subscriptionSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(tickerSubscribeToSymbol.fulfilled, (_state, action) => {
-                console.log(`Subscribed to ticker ${JSON.stringify(action.payload)}`)
+                // console.log(`Subscribed to ticker ${JSON.stringify(action.payload)}`)
             })
             .addCase(candlesSubscribeToSymbol.fulfilled, (_state, action) => {
-                console.log(`Subscribed to candle ${JSON.stringify(action.payload)}`)
+                // console.log(`Subscribed to candle ${JSON.stringify(action.payload)}`)
             })
             .addCase(tradeSubscribeToSymbol.fulfilled, (_state, action) => {
-                console.log(`Subscribed to trade ${JSON.stringify(action.payload)}`)
+                // console.log(`Subscribed to trade ${JSON.stringify(action.payload)}`)
             })
             .addCase(bookSubscribeToSymbol.fulfilled, (_state, action) => {
-                console.log(`Subscribed to book ${JSON.stringify(action.payload)}`)
+                // console.log(`Subscribed to book ${JSON.stringify(action.payload)}`)
             })
     }
 })
