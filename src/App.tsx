@@ -5,6 +5,7 @@ import { bootstrapApp } from '@modules/app/slice';
 import './styles/panelElements.scss';
 
 import CandlesChartContainer from '@modules/candles/components/CandlesChartContainer';
+import TradesContainer from '@modules/trades/components/TradesContainer';
 
 const store = getStore();
 
@@ -21,7 +22,9 @@ const AppContent = () => {
         <div className="trading-tracker__header">Trading Tracker</div>
         <div className="trading-tracker__tickers-panel">tickers</div>
         <div className="trading-tracker__market-panel">market</div>
-        <div className="trading-tracker__trades-panel">trades</div>
+        <div className="trading-tracker__trades-panel">
+          <TradesContainer />
+        </div>
         <div className="trading-tracker__candles-panel">
           <CandlesChartContainer />
         </div>
