@@ -25,7 +25,7 @@ const waitForConnection = (getState: () => RootState): Promise<void> => {
 
 export const bootstrapApp = createAsyncThunk("app/bootstrap",
     async(_, {dispatch, getState, extra}) => {
-        const { connection } = extra as { connection: Connection}
+        const { connection } = extra as { connection: Connection };
         connection.connect();
         await waitForConnection(getState as () => RootState);
         const currencyPairs = await dispatch(refDataLoad()).unwrap();

@@ -9,6 +9,7 @@ import TradesContainer from '@modules/trades/components/TradesContainer';
 import DepthChartContainer from '@modules/book/components/DepthChart/DepthChartContainer';
 import BookContainer from '@modules/book/components/Book/BookContainer';
 import MarketContainer from '@modules/tickers/components/Market/MarketContainer';
+import TickersContainer from '@modules/tickers/components/Tickers/TickersContainer';
 
 const store = getStore();
 
@@ -23,7 +24,9 @@ const AppContent = () => {
     <div className="trading-tracker__container">
       <div className="trading-tracker__content">
         <div className="trading-tracker__header">Trading Tracker</div>
-        <div className="trading-tracker__tickers-panel">tickers</div>
+        <div className="trading-tracker__tickers-panel">
+          <TickersContainer />
+        </div>
         <div className="trading-tracker__market-panel">
           <MarketContainer />
         </div>

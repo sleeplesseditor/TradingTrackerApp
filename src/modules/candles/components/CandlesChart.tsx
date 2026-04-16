@@ -17,27 +17,6 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
         time: {
             useUTC: false,
         },
-        // tooltip: {
-        //     enabled: true,
-        //     shared: false,
-        //     useHTML: true,
-        //     formatter: function() {
-        //         if (this.series.type === 'candlestick') {
-        //             const point = this.point as any;
-        //             return `
-        //                 <div style="font-size: 12px; color: #ffffff;">
-        //                     <div><b>${this.series.name}</b></div>
-        //                     <div>Open: ${point.open?.toFixed(2)}</div>
-        //                     <div>High: ${point.high?.toFixed(2)}</div>
-        //                     <div>Low: ${point.low?.toFixed(2)}</div>
-        //                     <div>Close: ${point.close?.toFixed(2)}</div>
-        //                     <div>${Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x)}</div>
-        //                 </div>
-        //             `;
-        //         }
-        //         return false;
-        //     }
-        // },
         credits: {
             enabled: false
         },
@@ -102,23 +81,9 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                 ...prevOptions,
                 series: [
                     {
-                        name: "BTC/USD",
+                        name: formatCurrencyPair(currencyPair),
                         type: "candlestick",
                         data: ohlc,
-                        // tooltip: {
-                        //     format: function() {
-                        //         console.log('This', this)
-                        //         return `
-                        //             <span style="font-size: 12px; color: #ffffff;">
-                        //                 <b>${this.series.name}</b><br/>
-                        //                 <b>Open:</b> ${this.options.open?.toFixed(2)}<br/>
-                        //                 <b>High:</b> ${this.options.high?.toFixed(2)}<br/>
-                        //                 <b>Low:</b> ${this.options.low?.toFixed(2)}<br/>
-                        //                 <b>Close:</b> ${this.options.close?.toFixed(2)}<br/>
-                        //             </span>
-                        //         `;
-                        //     }
-                        // }
                     },
                     {
                         type: "column",
@@ -140,10 +105,6 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                     },
                 },
                 tooltip: {
-                    // formatter: function() {
-                    //     console.log('THIS', this)
-                    //     return ``;
-                    // }
                     headerFormat: `<span style="font-size: 12px; color: #ffffff;">${formatCurrencyPair(currencyPair)}</span><br/>`,
                     pointFormat: `<span style="font-size: 12px; color: #ffffff;">
                         <b>Open:</b> {point.open:.2f}<br/>

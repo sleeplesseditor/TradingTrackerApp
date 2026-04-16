@@ -1,0 +1,70 @@
+@use '@../../../../../../styles/variables.scss';
+
+.ticker-container {
+    border: 1px solid variables.$border;
+}
+
+.ticker-container__active {
+    border: 1px solid variables.$orange;
+}
+
+.ticker-container,
+.ticker-container__active {
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: 25px 1fr;
+    height: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "currencyPair price"
+        "relativeChange change";
+    font-size: 12px;
+    padding: 5px 10px;
+
+    &:hover {
+        background-color: variables.$backgroundColorOnHover;
+    }
+}
+
+.currency-pair {
+    color: variables.$white;
+    grid-area: currencyPair;
+}
+
+.price {
+    color: variables.$white;
+    grid-area: price;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.relative-change__negative {
+    color: variables.$negative;
+}
+
+.relative-change__positive {
+    color: variables.$positive;
+}
+
+.relative-change__negative,
+.relative-change__positive {
+    display: flex;
+    font-family: FiraSans-Medium;
+    grid-area: relativeChange;
+    font-size: 18px;
+}
+
+.change__negative {
+    color: variables.$negative;
+}
+
+.change__positive {
+    color: variables.$positive;
+}
+
+.change__negative, 
+.change__positive {
+    grid-area: change;
+    margin-right: 0;
+    margin-left: auto;
+}
