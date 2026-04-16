@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { Connection } from '@core/transport/Connection';
-import { ConnectionStatus } from '@core/transport/types/ConnectionStatus';
+import { ConnectionStatus } from '@core/transport/types/connectionStatus';
 import type { RootState } from '@modules/redux/store';
 import { refDataLoad } from '@modules/reference-data/slice';
 import { selectCurrencyPair } from '@modules/selection/slice';

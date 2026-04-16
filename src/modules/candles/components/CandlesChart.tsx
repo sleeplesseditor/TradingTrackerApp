@@ -17,6 +17,30 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
         time: {
             useUTC: false,
         },
+        // tooltip: {
+        //     enabled: true,
+        //     shared: false,
+        //     useHTML: true,
+        //     formatter: function() {
+        //         if (this.series.type === 'candlestick') {
+        //             const point = this.point as any;
+        //             return `
+        //                 <div style="font-size: 12px; color: #ffffff;">
+        //                     <div><b>${this.series.name}</b></div>
+        //                     <div>Open: ${point.open?.toFixed(2)}</div>
+        //                     <div>High: ${point.high?.toFixed(2)}</div>
+        //                     <div>Low: ${point.low?.toFixed(2)}</div>
+        //                     <div>Close: ${point.close?.toFixed(2)}</div>
+        //                     <div>${Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x)}</div>
+        //                 </div>
+        //             `;
+        //         }
+        //         return false;
+        //     }
+        // },
+        credits: {
+            enabled: false
+        },
         yAxis: [
             {
                 labels: {
@@ -49,7 +73,6 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
         series: [
             {
                 type: "candlestick",
-                // name: formatCurrencyPair(currencyPair),
                 data: [],
             },
             {
@@ -75,22 +98,40 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                 .map(({ timestamp, volume }) => [timestamp, volume])
                 .sort((a, b) => a[0]! - b[0]!);
 
-            setChartOptions({
+            setChartOptions(prevOptions => ({
+                ...prevOptions,
                 series: [
                     {
+                        name: "BTC/USD",
                         type: "candlestick",
-                        name: formatCurrencyPair(currencyPair),
                         data: ohlc,
+                        // tooltip: {
+                        //     format: function() {
+                        //         console.log('This', this)
+                        //         return `
+                        //             <span style="font-size: 12px; color: #ffffff;">
+                        //                 <b>${this.series.name}</b><br/>
+                        //                 <b>Open:</b> ${this.options.open?.toFixed(2)}<br/>
+                        //                 <b>High:</b> ${this.options.high?.toFixed(2)}<br/>
+                        //                 <b>Low:</b> ${this.options.low?.toFixed(2)}<br/>
+                        //                 <b>Close:</b> ${this.options.close?.toFixed(2)}<br/>
+                        //             </span>
+                        //         `;
+                        //     }
+                        // }
                     },
                     {
                         type: "column",
+                        name: "Volume",
                         data: volumes,
                     },
                 ],
                 plotOptions: {
                     candlestick: {
-                        color: "#FF264D",
-                        upColor: "#00AD08",
+                        color: "pink",
+                        lineColor: 'red',
+                        upColor: "lightgreen",
+                        upLineColor: 'green',
                     },
                     column: {
                         color: "#4682b4",
@@ -98,11 +139,22 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                         borderWidth: 0,
                     },
                 },
-            })
+                tooltip: {
+                    // formatter: function() {
+                    //     console.log('THIS', this)
+                    //     return ``;
+                    // }
+                    headerFormat: `<span style="font-size: 12px; color: #ffffff;">${formatCurrencyPair(currencyPair)}</span><br/>`,
+                    pointFormat: `<span style="font-size: 12px; color: #ffffff;">
+                        <b>Open:</b> {point.open:.2f}<br/>
+                        <b>High:</b> {point.high:.2f}<br/>
+                        <b>Low:</b> {point.low:.2f}<br/>
+                        <b>Close:</b> {point.close:.2f}<br/>
+                    </span>`
+                }
+            }))
         }
     }, [candles, currencyPair]);
-
-    console.log('CHART OPTIONS', chartOptions)
 
     return (
         <div className="trade-tracker__container candles-chart">

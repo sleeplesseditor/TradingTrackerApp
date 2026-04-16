@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/tool
 import { Channel, type ChannelTypes } from "./types/Channels";
 import { SubscriptionActionType, type SubscriptionActionTypes } from "./types/ActionTypes";
 import type { Connection } from "./Connection";
-import { ConnectionStatus } from "./types/ConnectionStatus";
+import { ConnectionStatus } from "./types/connectionStatus";
 import type { SubscribeMsg } from "./types/SubscribeMsg";
 
 export type requestSubscribeToChannelAck = {

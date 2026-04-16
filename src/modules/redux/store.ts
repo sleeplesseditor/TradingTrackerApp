@@ -3,7 +3,7 @@ import { appBootstrapSlice } from "@modules/app/slice";
 import { WsConnectionProxy } from "@core/transport/WsConnectionProxy";
 import { Connection } from "@core/transport/Connection";
 import { changeConnectionStatus, subscriptionSlice } from "@core/transport/slice";
-import { ConnectionStatus } from "@core/transport/types/ConnectionStatus";
+import { ConnectionStatus } from "@core/transport/types/connectionStatus";
 import { refDataSlice } from "@modules/reference-data/slice";
 import { selectionSlice } from "@modules/selection/slice";
 import { createWsMiddleware } from "@core/transport/wsMiddleware";

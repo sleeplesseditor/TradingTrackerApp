@@ -1,4 +1,4 @@
-import Highcharts from "highcharts/highstock"
+import Highcharts from "highcharts/highstock";
 import '../styles/variables.scss';
 
 const theme = {
@@ -61,11 +61,11 @@ const theme = {
         },
     },
     tooltip: {
-    borderColor: "#424242",
-    backgroundColor: "rgba(0, 0, 0, 0.85)",
-    style: {
-        color: "#ffffff",
-    },
+        borderColor: "#424242",
+        backgroundColor: "rgba(0, 0, 0, 0.85)",
+        style: {
+            color: "#ffffff",
+        },
     },
     plotOptions: {
         series: {
@@ -128,7 +128,7 @@ const theme = {
         buttonOptions: {
             symbolStroke: "#DDDDDD",
             theme: {
-            fill: "#505053",
+                fill: "#505053",
             },
         },
     },
@@ -197,25 +197,25 @@ const theme = {
         },
     },
     navigator: {
-    enabled: true,
-    xAxis: {
-        gridLineColor: "#505053",
-        labels: {
-            style: {
-                color: "white",
+        enabled: true,
+        xAxis: {
+            gridLineColor: "#505053",
+            labels: {
+                style: {
+                    color: "white",
+                },
             },
         },
-    },
-    handles: {
-        backgroundColor: "#666",
-        borderColor: "#AAA",
-    },
-    outlineColor: "#CCC",
-    maskFill: "rgba(255,255,255,0.1)",
-    series: {
-        color: "#7798BF",
-        lineColor: "#A6C7ED",
-    },
+        handles: {
+            backgroundColor: "#666",
+            borderColor: "#AAA",
+        },
+        outlineColor: "#CCC",
+        maskFill: "rgba(255,255,255,0.1)",
+        series: {
+            color: "#7798BF",
+            lineColor: "#A6C7ED",
+        },
     },
     scrollbar: {
         barBackgroundColor: "#808083",
