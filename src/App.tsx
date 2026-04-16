@@ -7,6 +7,7 @@ import './styles/panelElements.scss';
 import CandlesChartContainer from '@modules/candles/components/CandlesChartContainer';
 import TradesContainer from '@modules/trades/components/TradesContainer';
 import DepthChartContainer from '@modules/book/components/DepthChart/DepthChartContainer';
+import BookContainer from '@modules/book/components/Book/BookContainer';
 
 const store = getStore();
 
@@ -29,7 +30,9 @@ const AppContent = () => {
         <div className="trading-tracker__candles-panel">
           <CandlesChartContainer />
         </div>
-        <div className="trading-tracker__book-panel">book</div>
+        <div className="trading-tracker__book-panel">
+          <BookContainer />
+        </div>
         <div className="trading-tracker__depth-panel">
           <DepthChartContainer />
         </div>
