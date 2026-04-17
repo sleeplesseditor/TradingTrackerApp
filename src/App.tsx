@@ -23,7 +23,7 @@ const AppContent = () => {
   return (
     <div className="trading-tracker__container">
       <div className="trading-tracker__content">
-        <div className="trading-tracker__header">Trading Tracker</div>
+        <div className="trading-tracker__header">Bitfinex Trading Tracker</div>
         <div className="trading-tracker__tickers-panel">
           <TickersContainer />
         </div>

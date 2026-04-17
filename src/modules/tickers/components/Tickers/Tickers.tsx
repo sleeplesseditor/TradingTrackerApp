@@ -43,7 +43,7 @@ const Tickers = ({ currencyPairs, selectedCurrencyPairIndex }: Props) => {
                         className={styles.tickers__wrapper}
                         style={{
                             animation: `slide-in-${index} 0.5s forwards`,
-                            transform: `scale(${scaleFactor}) translateX(${translateX}%)`,
+                            // transform: `scale(${scaleFactor}) translateX(${translateX}%)`,
                         } as React.CSSProperties}
                     >
                         <TickerContainer currencyPair={currencyPair} />

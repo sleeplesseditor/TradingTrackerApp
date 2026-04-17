@@ -6,11 +6,13 @@
 
 .ticker-container__active {
     border: 1px solid variables.$orange;
+    font-weight: 700;
 }
 
 .ticker-container,
 .ticker-container__active {
     cursor: pointer;
+    font-family: sans-serif;
     display: grid;
     grid-template-rows: 25px 1fr;
     height: 50px;
@@ -51,7 +53,7 @@
     display: flex;
     font-family: FiraSans-Medium;
     grid-area: relativeChange;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .change__negative {

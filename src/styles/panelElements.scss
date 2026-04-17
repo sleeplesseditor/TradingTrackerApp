@@ -68,6 +68,7 @@
         font-family: Gill Sans Extrabold, sans-serif;
         padding: 0 0 0 10px;
         font-size: 28px;
+        font-weight: 700;
 
         display: flex;
         justify-content: start;
@@ -132,5 +133,12 @@
         padding: 0 10px;
         display: flex;
         justify-content: flex-end;
+    }
+
+    &__book-panel,
+    &__market-panel,
+    &__trades-panel {
+        border: 1px solid variables.$steelBlue;
+        border-radius: 8px;
     }
 }

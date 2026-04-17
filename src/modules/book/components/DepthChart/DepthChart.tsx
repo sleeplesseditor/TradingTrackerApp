@@ -85,10 +85,15 @@ const DepthChart = ({ depth }: Props) => {
       xAxis: {
         categories: [...bids, ...asks].map((order) => order.price.toString()),
         labels: {
+          rotation: -45,
           step: 5,
           formatter: function () {
             return Number.parseFloat(this.value.toString()).toFixed(0)
           },
+          style: {
+            fontWeight: "700",
+            fontFamily: "sans-serif",
+          }
         },
       },
       series: [

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { usePrevious } from "@core/hooks/usePrevious";
+import './updateHighlight.scss';
 
 export interface Props {
     effect?: "zoom" | "default"

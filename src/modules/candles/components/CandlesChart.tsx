@@ -104,15 +104,15 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
                         borderWidth: 0,
                     },
                 },
-                tooltip: {
-                    headerFormat: `<span style="font-size: 12px; color: #ffffff;">${formatCurrencyPair(currencyPair)}</span><br/>`,
-                    pointFormat: `<span style="font-size: 12px; color: #ffffff;">
-                        <b>Open:</b> {point.open:.2f}<br/>
-                        <b>High:</b> {point.high:.2f}<br/>
-                        <b>Low:</b> {point.low:.2f}<br/>
-                        <b>Close:</b> {point.close:.2f}<br/>
-                    </span>`
-                }
+                // tooltip: {
+                //     headerFormat: `<span style="font-size: 12px; color: #ffffff;">${formatCurrencyPair(currencyPair)}</span><br/>`,
+                //     pointFormat: `<span style="font-size: 12px; color: #ffffff;">
+                //         <b>Open:</b> {point.open:.2f}<br/>
+                //         <b>High:</b> {point.high:.2f}<br/>
+                //         <b>Low:</b> {point.low:.2f}<br/>
+                //         <b>Close:</b> {point.close:.2f}<br/>
+                //     </span>`
+                // }
             }))
         }
     }, [candles, currencyPair]);
