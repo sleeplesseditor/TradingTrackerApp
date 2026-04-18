@@ -1,5 +1,11 @@
 import { updateTicker } from "@modules/tickers/slice";
+import { performanceTracker } from "@services/performanceTracker";
+import { Channel } from "../types/Channels";
 
 export const handleTickerData = (parsedData: any[], subscription: any, dispatch: any) => {
-    dispatch(updateTicker({ symbol: subscription.request.symbol, data: parsedData }))
+    const startTime = performance.now();
+    dispatch(updateTicker({ symbol: subscription.request.symbol, data: parsedData }));
+
+    const processingTime = performance.now() - startTime;
+    performanceTracker.updateLatency(Channel.TICKER, processingTime);
 };

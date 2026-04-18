@@ -10,6 +10,7 @@ import DepthChartContainer from '@modules/book/components/DepthChart/DepthChartC
 import BookContainer from '@modules/book/components/Book/BookContainer';
 import MarketContainer from '@modules/tickers/components/Market/MarketContainer';
 import TickersContainer from '@modules/tickers/components/Tickers/TickersContainer';
+import PerformanceDashboard from '@modules/perfomanceDashboard/performanceDashboard';
 
 const store = getStore();
 
@@ -43,8 +44,7 @@ const AppContent = () => {
           <DepthChartContainer />
         </div>
         <div className="trading-tracker__footer">
-          <span>Latency</span>
-          <span>Diagnostic</span>
+          {import.meta.env.DEV && <PerformanceDashboard />}
         </div>
       </div>
     </div>
