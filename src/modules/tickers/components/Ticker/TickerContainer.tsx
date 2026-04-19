@@ -7,15 +7,21 @@ import Ticker from "./Ticker";
 
 export interface ContainerProps {
     currencyPair: string
+    onClick?: () => void
 }
 
-const TickerContainer = ({ currencyPair }: ContainerProps) => {
+const TickerContainer = ({ currencyPair, onClick }: ContainerProps) => {
     const dispatch = useDispatch<AppDispatch>();
 
     const ticker = useSelector(getTicker)(currencyPair);
     const { lastPrice, dailyChange, dailyChangeRelative } = ticker || {};
 
     const selectedCurrencyPair = useSelector(getSelectedCurrencyPair);
+
+    const handleClick = () => {
+        dispatch(selectCurrencyPair({ currencyPair }));
+        onClick?.();
+    };
 
     return (
         <Ticker
@@ -24,7 +30,7 @@ const TickerContainer = ({ currencyPair }: ContainerProps) => {
             dailyChangeRelative={dailyChangeRelative!}
             isActive={selectedCurrencyPair === currencyPair}
             lastPrice={lastPrice!}
-            onClick={() => dispatch(selectCurrencyPair({ currencyPair }))}
+            onClick={handleClick}
         />
     )
 }

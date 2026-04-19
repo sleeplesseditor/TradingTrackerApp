@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { usePerformanceMonitor } from "@core/hooks/usePerformanceMonitor";
 
 const PerformanceDashboard = () => {

@@ -99,37 +99,37 @@
     &__tickers-panel {
         grid-area: tickers;
         overflow: hidden;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__market-panel {
         grid-area: market;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__trades-panel {
         grid-area: trades;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__candles-panel {
         grid-area: candles;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__book-panel {
         grid-area: book;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__depth-panel {
         grid-area: depth;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
     }
 
     &__footer {
         grid-area: footer;
-        font-family: FiraSans-Medium;
+        font-family: FiraSans-Medium, sans-serif;
         padding: 0 10px;
         display: flex;
         justify-content: flex-end;

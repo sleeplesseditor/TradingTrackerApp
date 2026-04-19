@@ -24,7 +24,10 @@ const Ticker = ({
     const percentChange = dailyChangeRelative ? dailyChangeRelative * 100 : undefined;
 
     return (
-        <div className={`ticker-container${isActive ? '__active' : ''}`} onClick={onClick}>
+        <div 
+            className={`ticker-container${isActive ? '__active' : ''}`} 
+            onClick={onClick} 
+        >
             <div className="currency-pair">{formatCurrencyPair(currencyPair)}</div>
             <div className="price">
                 <UpdateHighlight value={formatPrice(lastPrice)} effect="zoom" />

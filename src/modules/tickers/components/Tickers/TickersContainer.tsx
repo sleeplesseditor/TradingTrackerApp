@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
 import { getVisibleCurrencyPairTickers } from "@modules/tickers/selectors";
+import { getSelectedCurrencyPair } from "@modules/selection/selector";
 import Tickers from "./Tickers";
 
 const TickersContainer = () => {
-    const { currencyPairs, selectedCurrencyPairIndex } = useSelector(getVisibleCurrencyPairTickers);
+    const { currencyPairs } = useSelector(getVisibleCurrencyPairTickers);
+    const selectedCurrencyPair = useSelector(getSelectedCurrencyPair);
 
     return (
         <Tickers 
             currencyPairs={currencyPairs} 
-            selectedCurrencyPairIndex={selectedCurrencyPairIndex} 
+            selectedCurrencyPair={selectedCurrencyPair}
         />
     )
 }

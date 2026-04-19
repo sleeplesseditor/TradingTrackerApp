@@ -22,7 +22,8 @@
       "@core/*": ["./src/core/*"],
       "@modules/*": ["./src/modules/*"],
       "@theme/*": ["./src/theme/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@styles/*": ["./src/styles/*"]
     },
 
     /* Linting */

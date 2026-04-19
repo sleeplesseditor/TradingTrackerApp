@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  font-family: FiraSans-Regular;
+  font-family: FiraSans-Regular, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

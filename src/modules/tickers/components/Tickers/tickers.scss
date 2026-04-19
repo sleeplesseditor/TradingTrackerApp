@@ -1,2 +1,37 @@
-// Legacy SCSS file - styling moved to tickers.module.scss for CSS Modules support
-// This file is kept for backwards compatibility if other components import from it
+@use '@styles/variables.scss';
+
+.tickers {
+  &__container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+
+    .slick-active {
+        opacity: 1 !important;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slick-dots {
+        z-index: 1;
+
+        li {
+            button {
+                &::before {
+                    color: variables.$white !important;
+                }
+            }
+        }
+    }
+
+    .slick-prev {
+        left: 3% !important;
+        z-index: 1;
+    }
+
+    .slick-next {
+        right: 3% !important;
+        z-index: 1;
+    }
+  }
+}

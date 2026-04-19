@@ -22,7 +22,7 @@ const Market = ({ tickers, selectedCurrencyPair }: Props) => {
 
     const columnDefs: ColDef[] = [
         {
-            headerName: "Ccy",
+            headerName: "Currency",
             field: "currencyPair",
             valueFormatter: (params) => formatCurrencyPair(params.value),
             width: 100,

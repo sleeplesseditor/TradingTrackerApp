@@ -1,5 +1,4 @@
 import Highcharts from "highcharts/highstock";
-import '../styles/variables.scss';
 
 const theme = {
     colors: [

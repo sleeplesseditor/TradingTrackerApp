@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Provider, useDispatch } from 'react-redux';
 import getStore,{ type AppDispatch } from "@modules/redux/store";
 import { bootstrapApp } from '@modules/app/slice';
-import './styles/panelElements.scss';
+import '@styles/panelElements.scss';
 
 import CandlesChartContainer from '@modules/candles/components/CandlesChartContainer';
 import TradesContainer from '@modules/trades/components/TradesContainer';
@@ -44,7 +44,7 @@ const AppContent = () => {
           <DepthChartContainer />
         </div>
         <div className="trading-tracker__footer">
-          {import.meta.env.DEV && <PerformanceDashboard />}
+          {!import.meta.env.DEV && <PerformanceDashboard />}
         </div>
       </div>
     </div>

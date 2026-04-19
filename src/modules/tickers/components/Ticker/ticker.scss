@@ -1,4 +1,4 @@
-@use '@../../../../../../styles/variables.scss';
+@use '@styles/variables.scss';
 
 .ticker-container {
     border: 1px solid variables.$border;
@@ -51,7 +51,7 @@
 .relative-change__negative,
 .relative-change__positive {
     display: flex;
-    font-family: FiraSans-Medium;
+    font-family: FiraSans-Medium, sans-serif;
     grid-area: relativeChange;
     font-size: 16px;
 }
