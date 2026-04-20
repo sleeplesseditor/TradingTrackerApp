@@ -9,7 +9,7 @@
     }
 
     .selected-row {
-        font-weight: 700;
+        font-weight: variables.$fontWeightHeavy;
         background-color: variables.$backgroundColorOnHover;
     }
 }

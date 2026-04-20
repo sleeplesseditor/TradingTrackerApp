@@ -1,4 +1,5 @@
-@use './variables.scss';
+@use '@styles/variables.scss';
+@use '@styles/elementMixins.scss';
 
 .trading-tracker {
     &__container {
@@ -59,6 +60,8 @@
     }
 
     &__header {
+        @include elementMixins.flex-layout(null, space-between, center);
+
         background-color: variables.$steelBlue;
         grid-area: header;
         color: variables.$white;
@@ -67,11 +70,30 @@
         font-family: Gill Sans Extrabold, sans-serif;
         padding: 0 0 0 10px;
         font-size: 28px;
-        font-weight: 700;
+        font-weight: variables.$fontWeightHeavy;
 
-        display: flex;
-        justify-content: start;
-        align-items: center;
+        .settings-icon {
+            background: none;
+            border: none;
+            height: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-right: 10px;
+
+            .material-icons {
+               color: rgba(245, 245, 245, 0.64);
+            }
+
+            &:focus-visible {
+                outline: none;
+            }
+
+            &:hover {
+                .material-icons {
+                    color: variables.$white;
+                }
+            }
+        }
 
         &::before {
             content: "";
@@ -127,11 +149,11 @@
     }
 
     &__footer {
+        @include elementMixins.flex-layout(null, flex-end, null);
+
         grid-area: footer;
         font-family: FiraSans-Medium, sans-serif;
         padding: 0 10px;
-        display: flex;
-        justify-content: flex-end;
     }
 
     &__book-panel,

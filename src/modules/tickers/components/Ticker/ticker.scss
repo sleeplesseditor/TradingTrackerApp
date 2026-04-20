@@ -6,7 +6,7 @@
 
 .ticker-container__active {
     border: 1px solid variables.$white;
-    font-weight: 700;
+    font-weight: variables.$fontWeightHeavy;
 }
 
 .ticker-container,
@@ -72,11 +72,4 @@
     grid-area: change;
     margin-right: 0;
     margin-left: auto;
-}
-
-.slick-slide {
-
-    // &[aria-hidden="true"] {
-    //     display: none !important;
-    // }
 }

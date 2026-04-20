@@ -24,7 +24,15 @@ const AppContent = () => {
   return (
     <div className="trading-tracker__container">
       <div className="trading-tracker__content">
-        <div className="trading-tracker__header">Bitfinex Trading Tracker</div>
+        <div className="trading-tracker__header">
+          <span>Bitfinex Trading Tracker</span>
+          <button className="settings-icon" popoverTarget="mypopover">
+            <i className="material-icons">settings</i>
+          </button>
+          <div id="mypopover" className="popover" popover="auto">
+            {import.meta.env.DEV && <PerformanceDashboard />}
+          </div>
+        </div>
         <div className="trading-tracker__tickers-panel">
           <TickersContainer />
         </div>
@@ -43,9 +51,9 @@ const AppContent = () => {
         <div className="trading-tracker__depth-panel">
           <DepthChartContainer />
         </div>
-        <div className="trading-tracker__footer">
+        {/* <div className="trading-tracker__footer">
           {!import.meta.env.DEV && <PerformanceDashboard />}
-        </div>
+        </div> */}
       </div>
     </div>
   )
