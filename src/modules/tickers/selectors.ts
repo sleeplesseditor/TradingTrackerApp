@@ -28,13 +28,13 @@ export const getTickers = createSelector(getCurrencyPairs, tickerSelector, (curr
 export const getVisibleCurrencyPairTickers = createSelector(getCurrencyPairs, getSelectedCurrencyPair, (allCurrencyPairs, selectedCurrencyPair) => {
     let currencyPairs: string[] = [];
 
+    console.log('allCurrencyPairs', allCurrencyPairs)
+
     const selectedCurrencyPairIndex = allCurrencyPairs.indexOf(selectedCurrencyPair || "");
 
     // Pick a few currency pairs on each side of the selected one
     if (selectedCurrencyPairIndex >= 0) {
-        currencyPairs = range(selectedCurrencyPairIndex - 2, selectedCurrencyPairIndex + 3)
-            .map((index) => getValueAt(allCurrencyPairs)(index))
-            .filter((pair): pair is string => pair !== undefined)
+        currencyPairs = allCurrencyPairs
     }
 
     return {

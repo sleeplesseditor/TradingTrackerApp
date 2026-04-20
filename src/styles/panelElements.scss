@@ -2,8 +2,8 @@
 
 .trading-tracker {
     &__container {
-        position: absolute;
-        inset: 0;
+        // position: absolute;
+        // inset: 0;
         background-color: variables.$backgroundColor;
         width: 100vw;
         height: 100vh;
@@ -22,35 +22,36 @@
             grid-template-rows: 40px 70px 1fr 250px 30px;
             grid-template-columns: 450px 1fr 1fr;
             grid-template-areas:
-            "header header header"
-            "tickers tickers tickers"
-            "market candles candles"
-            "trades book depth"
-            "footer footer footer";
+                "header header header"
+                "tickers tickers tickers"
+                "market candles candles"
+                "trades book depth"
+                "footer footer footer";
         }
 
         @media only screen and (min-width: 600px) and (max-width: 1200px) {
             grid-template-rows: 40px 70px 1fr 1fr 30px;
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
-            "header header"
-            "market book"
-            "market book"
-            "trades depth"
-            "footer footer";
+                "header header"
+                "market book"
+                "market book"
+                "trades depth"
+                "footer footer";
 
-            .tickers,
+            .trading-tracker__tickers-panel,
             .candles-chart {
                 display: none;
             }
         }
 
         @media only screen and (max-width: 600px) {
-            grid-template-rows: 40px calc(100% - 90px) 30px;
-            grid-template-columns: calc(100% - 20px);
+            grid-template-rows: 40px 45% 45% 30px;
+            grid-template-columns: 100%;
             grid-template-areas:
             "header"
             "market"
+            "book"
             "footer";
 
             .candles-chart {

@@ -22,9 +22,35 @@ const Tickers = ({ currencyPairs, selectedCurrencyPair }: Props) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     React.useEffect(() => {
@@ -39,6 +65,8 @@ const Tickers = ({ currencyPairs, selectedCurrencyPair }: Props) => {
     const handleSlideClick = (index: number) => {
         sliderRef.current?.slickGoTo(index);
     };
+
+    console.log('currencyPairs', currencyPairs)
 
     return (
         <div className="tickers__container">

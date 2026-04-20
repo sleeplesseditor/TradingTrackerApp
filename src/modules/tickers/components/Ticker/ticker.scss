@@ -5,12 +5,14 @@
 }
 
 .ticker-container__active {
-    border: 1px solid variables.$orange;
+    border: 1px solid variables.$white;
     font-weight: 700;
 }
 
 .ticker-container,
 .ticker-container__active {
+    margin: 0 5px;
+    border-radius: 4epx;
     cursor: pointer;
     font-family: sans-serif;
     display: grid;
@@ -22,9 +24,10 @@
         "relativeChange change";
     font-size: 12px;
     padding: 5px 10px;
+    transition: background 0.2s ease-in-out;
 
     &:hover {
-        background-color: variables.$backgroundColorOnHover;
+        background-color: lighten(variables.$backgroundColor, 10%);
     }
 }
 
