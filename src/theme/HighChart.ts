@@ -23,7 +23,7 @@ const theme = {
         },
         style: {
             color: "#ffffff",
-            fontFamily: "FiraSans-MediumItalic",
+            fontFamily: "sans-serif",
             fontSize: "14px",
         },
     },

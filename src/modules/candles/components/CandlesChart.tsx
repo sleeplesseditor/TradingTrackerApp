@@ -24,7 +24,7 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
             {
                 labels: {
                     align: "right",
-                    x: -3,
+                    x: -10,
                 },
                 title: {
                     text: "OHLC",

@@ -52,7 +52,7 @@ const DepthChart = ({ depth }: Props) => {
         autoRotation: [],
         style: {
           color: "#FFFFFF",
-          fontFamily: "FiraSans-MediumItalic",
+          fontFamily: "sans-serif",
         },
       },
     },
@@ -113,6 +113,11 @@ const DepthChart = ({ depth }: Props) => {
           type: "area",
           data: [...bids.map(() => null), ...asks.map((ask) => ask.depth)],
           color: "#FF264D",
+          tooltip: {
+            pointFormatter: function() {
+              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${this.x}<br/>Depth: ${this.y}`
+            }
+          }
         },
       ],
     })
