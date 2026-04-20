@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { useThrottle } from "../../../../core/hooks/useThrottle";
+import { useThrottle } from "@core/hooks/useThrottle";
+import { priceFormatter } from "@modules/ag-grid/formatter";
 import "./depthChart.scss";
 import "@theme/HighChart";
 
@@ -88,7 +89,8 @@ const DepthChart = ({ depth }: Props) => {
           rotation: -45,
           step: 5,
           formatter: function () {
-            return Number.parseFloat(this.value.toString()).toFixed(0)
+            const price = priceFormatter({ value: Number(this.value) });
+            return price.toString().substring(0, price.toString().indexOf("."));
           },
           style: {
             fontWeight: "700",
@@ -106,12 +108,13 @@ const DepthChart = ({ depth }: Props) => {
       yAxis: {
         allowDecimals: true,
         labels: {
-          rotation: -45,
+          enabled: true,
           step: 1,
           formatter: function () {
             return Number.parseFloat(this.value.toString()).toFixed(0)
           },
           style: {
+            color: "#FFFFFF",
             fontWeight: "700",
             fontFamily: "sans-serif",
           },
@@ -119,6 +122,7 @@ const DepthChart = ({ depth }: Props) => {
         title: {
           text: 'Amount',
           style: {
+            color: "#FFFFFF",
             fontWeight: "700",
             fontFamily: "sans-serif",
           },

@@ -23,30 +23,30 @@ const CandlesChart = ({ candles, currencyPair, isStale }: Props) => {
         yAxis: [
             {
                 labels: {
-                    align: "right",
-                    x: -10,
+                    enabled: false
                 },
                 title: {
                     text: "OHLC",
+                    x: 10
                 },
                 height: "70%",
-                lineWidth: 2,
+                lineWidth: 1,
                 resize: {
                     enabled: true,
                 },
             },
             {
                 labels: {
-                    align: "right",
-                    x: -3,
+                    enabled: false
                 },
                 title: {
                     text: "Volume",
+                    x: 10
                 },
                 top: "75%",
                 height: "25%",
                 offset: 0,
-                lineWidth: 2,
+                lineWidth: 1,
             },
         ],
         series: [
