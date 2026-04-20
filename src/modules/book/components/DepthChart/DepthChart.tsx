@@ -124,26 +124,33 @@ const DepthChart = ({ depth }: Props) => {
           },
         }
       },
+      tooltip: {
+        shared: false,
+        useHTML: true,
+        backgroundColor: '#fff',
+        borderColor: '#333',
+        borderRadius: 5,
+        style: {
+          color: '#000',
+          fontSize: '12px'
+        },
+        formatter: function() {
+          const seriesName = this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1);
+          return `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background-color:${this.series.color};margin-right:5px;"></span><b>${seriesName}</b><br/><b>Price:</b> ${this.category}<br/><b>Depth:</b> ${this.y}`;
+        }
+      },
       series: [
         {
           name: "bids",
           type: "area",
           data: [...bids.map((bid) => bid.depth), ...asks.map(() => null)],
-          color: "#00AD08",
-          tooltip: {
-            headerFormat: '<b>Bids</b><br/>',
-            pointFormat: '<b>Price:</b> {point.x}<br/><b>Amount:</b> {point.y}'
-          }
+          color: "#00AD08"
         },
         {
           name: "asks",
           type: "area",
           data: [...bids.map(() => null), ...asks.map((ask) => ask.depth)],
           color: "#FF264D",
-          tooltip: {
-            headerFormat: '<b>Asks</b><br/>',
-            pointFormat: '<b>Price:</b> {point.x}<br/><b>Amount:</b> {point.y}'
-          }
         },
       ],
     })
