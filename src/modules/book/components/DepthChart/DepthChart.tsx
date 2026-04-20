@@ -79,7 +79,7 @@ const DepthChart = ({ depth }: Props) => {
   });
 
   React.useEffect(() => {
-    const { bids, asks } = throttledDepth
+    const { bids, asks } = throttledDepth;
 
     setChartOptions({
       xAxis: {
@@ -93,8 +93,36 @@ const DepthChart = ({ depth }: Props) => {
           style: {
             fontWeight: "700",
             fontFamily: "sans-serif",
-          }
+          },
         },
+        title: {
+          text: 'Price',
+          style: {
+            fontWeight: "700",
+            fontFamily: "sans-serif",
+          },
+        }
+      },
+      yAxis: {
+        allowDecimals: true,
+        labels: {
+          rotation: -45,
+          step: 1,
+          formatter: function () {
+            return Number.parseFloat(this.value.toString()).toFixed(0)
+          },
+          style: {
+            fontWeight: "700",
+            fontFamily: "sans-serif",
+          },
+        },
+        title: {
+          text: 'Amount',
+          style: {
+            fontWeight: "700",
+            fontFamily: "sans-serif",
+          },
+        }
       },
       series: [
         {
@@ -103,9 +131,8 @@ const DepthChart = ({ depth }: Props) => {
           data: [...bids.map((bid) => bid.depth), ...asks.map(() => null)],
           color: "#00AD08",
           tooltip: {
-            pointFormatter: function() {
-              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${this.x}`
-            }
+            headerFormat: '<b>Bids</b><br/>',
+            pointFormat: '<b>Price:</b> {point.x}<br/><b>Amount:</b> {point.y}'
           }
         },
         {
@@ -114,9 +141,8 @@ const DepthChart = ({ depth }: Props) => {
           data: [...bids.map(() => null), ...asks.map((ask) => ask.depth)],
           color: "#FF264D",
           tooltip: {
-            pointFormatter: function() {
-              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${Number.parseFloat(this.x.toString()).toFixed(0)}`
-            }
+            headerFormat: '<b>Asks</b><br/>',
+            pointFormat: '<b>Price:</b> {point.x}<br/><b>Amount:</b> {point.y}'
           }
         },
       ],
@@ -125,7 +151,11 @@ const DepthChart = ({ depth }: Props) => {
 
   return (
     <div className="depth-chart__container">
-      <HighchartsReact highcharts={Highcharts} options={chartOptions} constructorType={"chart"} />
+      <HighchartsReact 
+        constructorType={"chart"}
+        highcharts={Highcharts}
+        options={chartOptions}
+      />
     </div>
   )
 };

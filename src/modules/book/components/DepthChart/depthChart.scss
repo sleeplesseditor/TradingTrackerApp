@@ -4,5 +4,9 @@
         height: 100%;
         display: grid;
         position: relative;
+
+        .highcharts-axis-title {
+            fill: white !important;
+        }
     }
 }

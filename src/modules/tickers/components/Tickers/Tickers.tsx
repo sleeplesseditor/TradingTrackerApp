@@ -66,8 +66,6 @@ const Tickers = ({ currencyPairs, selectedCurrencyPair }: Props) => {
         sliderRef.current?.slickGoTo(index);
     };
 
-    console.log('currencyPairs', currencyPairs)
-
     return (
         <div className="tickers__container">
             <Slider ref={sliderRef} {...settings} >

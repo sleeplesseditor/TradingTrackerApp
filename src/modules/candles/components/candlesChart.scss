@@ -7,9 +7,17 @@
     font-weight: 700 !important;
     font-family: sans-serif !important;
 
+    .highcharts-range-selector {
+        color-scheme: dark !important;
+    }
+
     .highcharts-label.highcharts-range-input {
         text {
-                    font-family: sans-serif;
+            font-family: sans-serif;
+        }
+
+        svg {
+            fill: white;
         }
     }
 
