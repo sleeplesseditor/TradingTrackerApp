@@ -104,7 +104,7 @@ const DepthChart = ({ depth }: Props) => {
           color: "#00AD08",
           tooltip: {
             pointFormatter: function() {
-              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${this.x}<br/>Depth: ${this.y}`
+              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${this.x}`
             }
           }
         },
@@ -115,7 +115,7 @@ const DepthChart = ({ depth }: Props) => {
           color: "#FF264D",
           tooltip: {
             pointFormatter: function() {
-              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${this.x}<br/>Depth: ${this.y}`
+              return `<strong>${this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1)}</strong><br/>Price: ${Number.parseFloat(this.x.toString()).toFixed(0)}`
             }
           }
         },

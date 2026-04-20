@@ -19,6 +19,7 @@ const Tickers = ({ currencyPairs, selectedCurrencyPair }: Props) => {
         centerMode: true,
         centerPadding: "60px",
         dots: true,
+        // fade: true,
         infinite: true,
         speed: 500,
         slidesToShow: 5,

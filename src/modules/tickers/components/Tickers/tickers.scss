@@ -6,6 +6,7 @@
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
+    padding: 0 50px;
 
     .slick-active {
         opacity: 1 !important;
@@ -25,12 +26,12 @@
     }
 
     .slick-prev {
-        left: 3% !important;
+        left: -3% !important;
         z-index: 1;
     }
 
     .slick-next {
-        right: 3% !important;
+        right: -3% !important;
         z-index: 1;
     }
   }
