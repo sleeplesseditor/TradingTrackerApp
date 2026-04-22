@@ -2,4 +2,8 @@
 
 A refresher app as part of [online coursework (created by Ricardo Saumeth)](https://www.udemy.com/course/build-a-real-time-crypto-app-with-react-19-typescript), built using React 19, TypeScript, Redux Toolkit, WebSockets, Highcharts, AG Grid and the Bitfinex WebSocket API.
 
-<img width="1432" height="674" alt="Screenshot 2026-04-20 at 15 19 08" src="https://github.com/user-attachments/assets/b0ae6b0a-a727-4679-82a3-a024da02d842" />
+<img width="1436" height="676" alt="Screenshot 2026-04-22 at 10 34 30" src="https://github.com/user-attachments/assets/8928a243-a6f9-4884-9369-96ae46488812" />
+Example of active dashboard with candlestick plot tooltips
+
+<img width="1439" height="676" alt="Screenshot 2026-04-22 at 10 34 38" src="https://github.com/user-attachments/assets/94ec14f1-c510-4584-b460-491fcba36a0e" />
+Example of diagnostics popover displayed
