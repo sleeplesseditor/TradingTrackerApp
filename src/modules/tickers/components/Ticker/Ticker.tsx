@@ -25,19 +25,27 @@ const Ticker = ({
 
     return (
         <div 
-            className={`ticker-container${isActive ? '__active' : ''}`} 
-            onClick={onClick} 
+            className={`ticker-container${isActive ? '__active' : ''}`}
+            data-testid="ticker-container"
+            onClick={onClick}
+            role="button"
         >
             <div className="currency-pair">{formatCurrencyPair(currencyPair)}</div>
             <div className="price">
-                <UpdateHighlight value={formatPrice(lastPrice)} effect="zoom" />
+                {formatPrice(lastPrice)}
             </div>
-            <div className={`relative-change${isPositiveChange ? '__positive' : '__negative'}`}>
+            <div 
+                className={`relative-change${isPositiveChange ? '__positive' : '__negative'}`}
+                data-testid="relative-change"
+            >
                 <TrendIndicator value={dailyChangeRelative} />
                 <UpdateHighlight value={percentChange?.toFixed(2)} />
                 {percentChange && "%"}
             </div>
-            <div className={`change${isPositiveChange ? '__positive' : '__negative'}`}>
+            <div 
+                className={`change${isPositiveChange ? '__positive' : '__negative'}`} 
+                data-testid="change"
+            >
                 <UpdateHighlight value={dailyChange?.toFixed(2)} />
             </div>
         </div>

@@ -20,7 +20,7 @@ const CandlesChartContainer = () => {
 
     const candles = useSelector(selectCandles);
 
-    return <CandlesChart candles={candles} currencyPair={selectedCurrencyPair} isStale={false} />
+    return <CandlesChart candles={candles} currencyPair={selectedCurrencyPair} />
 }
 
 export default CandlesChartContainer;

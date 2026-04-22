@@ -1,13 +1,13 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-import type { Trade } from "./types/Trade"
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { Trade } from "./types/Trade";
 
-export const MAX_TRADES = import.meta.env["VITE_MAX_TRADES"]
+export const MAX_TRADES = import.meta.env["VITE_MAX_TRADES"];
 
 interface TradesState {
     [currencyPair: string]: Trade[]
 }
 
-const initialState: TradesState = {}
+const initialState: TradesState = {};
 
 export const tradesSlice = createSlice({
     name: "trades",
