@@ -28,7 +28,7 @@
                 "footer footer footer";
         }
 
-        @media only screen and (min-width: 600px) and (max-width: 1200px) {
+        @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: portrait) {
             grid-template-rows: 40px 70px 1fr 1fr 30px;
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
@@ -44,16 +44,34 @@
             }
         }
 
+         @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
+            grid-template-rows: 40px 40% 45%;
+            grid-template-columns: 55% 45%;
+            grid-template-areas:
+                "header header"
+                "market book"
+                "trades depth";
+
+            .trading-tracker__header {
+                font-size: 22px;
+            }
+
+            .candles-chart,
+            .trading-tracker__tickers-panel {
+                display: none;
+            }
+         }
+
         @media only screen and (max-width: 600px) {
-            grid-template-rows: 40px 45% 45% 30px;
+            grid-template-rows: 40px 30% 30% 33%;
             grid-template-columns: 100%;
             grid-template-areas:
             "header"
             "market"
             "book"
-            "footer";
+            "candles";
 
-            .candles-chart {
+            .trading-tracker__depth-panel {
                 display: none;
             }
         }
@@ -114,6 +132,10 @@
             100% {
                 transform: translateX(100%) translateY(100%) rotate(45deg);
             }
+        }
+
+        @media only screen and (max-width: 600px) {
+            font-size: 22px;
         }
     }
 

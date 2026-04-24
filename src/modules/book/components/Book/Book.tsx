@@ -58,7 +58,15 @@ const Book = ({ orders }: Props) => {
             <AgGridReact
                 columnDefs={columnDefs}
                 getRowId={getRowId}
-                gridOptions={{ localeText: { noRowsToShow: "Loading..." } }}
+                gridOptions={{ 
+                    localeText: { noRowsToShow: "Loading..." },
+                    onGridReady: (params) => {
+                        params.api.sizeColumnsToFit(); 
+                    },
+                    onGridSizeChanged: (params) => {
+                        params.api.sizeColumnsToFit();
+                    }
+                }}
                 rowData={throttledOrders}
                 suppressHorizontalScroll={true}
             />
