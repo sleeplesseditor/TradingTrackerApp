@@ -5,6 +5,7 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/TradingTrackerApp/',
   resolve: {
     alias: {
       "@core": path.resolve(__dirname, "./src/core"),
