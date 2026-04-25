@@ -40,9 +40,9 @@ Object.defineProperty(window, "ResizeObserver", {
 vi.mock("../config/env", () => ({
     config: {
         BITFINEX_WS_URL: "ws://localhost:8080",
-        MAX_TRADES: 1000,
-        MAX_CANDLES: 5000,
-        IS_PRODUCTION: false,
+        VITE_MAX_TRADES: 1000,
+        VITE_MAX_CANDLES: 5000,
+        VITE_IS_PRODUCTION: false,
     },
 }));
 

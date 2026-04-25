@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Candle, CandleTuple } from "./types/Candle";
 
-const MAX_CANDLES = import.meta.env["VITE_MAX_CANDLES"];
+const MAX_CANDLES = import.meta.env?.["VITE_MAX_CANDLES"] ?? 1000;
 
 type SymbolState = Candle[]
 
