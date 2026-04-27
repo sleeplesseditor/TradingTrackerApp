@@ -1,10 +1,10 @@
 # Trading Tracker App
 
 #### Table of Contents
-[Description](#description)
-[Example Screenshots](#example-screenshots)
-[Changes from Original Project](#changes-from-original-project)
-[Local Setup Instructions](#local-setup-instructions)
+- [Description](#description)
+- [Example Screenshots](#example-screenshots)
+- [Changes from Original Project](#changes-from-original-project)
+- [Local Setup Instructions](#local-setup-instructions)
 
 ## Description
 
