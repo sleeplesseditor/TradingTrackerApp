@@ -1,6 +1,18 @@
 @use '@styles/variables.scss';
 @use '@styles/elementMixins.scss';
 
+@mixin mobile-header {
+    font-size: 22px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+@mixin panel-borders {
+    border: 1px solid variables.$steelBlue;
+    border-radius: 8px;
+}
+
 .trading-tracker {
     &__container {
         background-color: variables.$backgroundColor;
@@ -44,6 +56,7 @@
                 "trades depth"
                 "footer footer";
 
+
             .trading-tracker__tickers-panel,
             .candles-chart {
                 display: none;
@@ -52,20 +65,32 @@
 
          @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
             gap: 15px;
-            grid-template-rows: 40px 1fr 1fr;
-            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 40px 250px 250px 250px;
+            grid-template-columns: 1fr;
             grid-template-areas:
-                "header header"
-                "market book"
-                "trades depth";
+                "header"
+                "market"
+                "trades"
+                "book";
+            overflow: scroll;
+            padding: 0px;
 
-            .trading-tracker__header {
-                font-size: 22px;
-            }
+            .trading-tracker {
+                &__header {
+                    @include mobile-header;
+                }
 
-            .trading-tracker__candles-panel,
-            .trading-tracker__tickers-panel {
-                display: none;
+                &__book-panel,
+                &__market-panel,
+                &__trades-panel {
+                    padding: 0px 10px;
+                }
+
+                &__depth-panel,
+                &__candles-panel,
+                &__tickers-panel {
+                    display: none;
+                }
             }
 
             .book-container {
@@ -82,8 +107,20 @@
             "market"
             "book"
             "candles";
+            overflow: scroll;
+            padding: 0px;
 
             .trading-tracker {
+                &__header {
+                    @include mobile-header;
+                }
+
+                &__market-panel,
+                &__book-panel,
+                &__candles-panel {
+                    padding: 0px 10px;
+                }
+
                 &__depth-panel,
                 &__tickers-panel,
                 &__trades-panel {
@@ -186,35 +223,21 @@
         font-family: FiraSans-Medium, sans-serif;
     }
 
-    &__footer {
-        @include elementMixins.flex-layout(null, flex-end, null);
-
-        grid-area: footer;
-        font-family: FiraSans-Medium, sans-serif;
-        padding: 0 10px;
-    }
-
-    // &__book-panel,
-    // &__market-panel,
-
     &__book-panel {
         .book-container {
-            border: 1px solid variables.$steelBlue;
-            border-radius: 8px;
+            @include panel-borders;
         }
     }
 
     &__market-panel {
         .market-container {
-            border: 1px solid variables.$steelBlue;
-            border-radius: 8px;
+            @include panel-borders;
         }
     }
 
     &__trades-panel {
         .trades-container {
-            border: 1px solid variables.$steelBlue;
-            border-radius: 8px;
+            @include panel-borders;
         }
     }
 }
