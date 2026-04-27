@@ -22,7 +22,7 @@
         padding: 5px 10px;
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        overflow: auto;
 
         @media only screen and (min-width: 1200px) {
             grid-template-rows: 40px 70px 1fr 250px;
@@ -51,6 +51,7 @@
         }
 
          @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
+            gap: 15px;
             grid-template-rows: 40px 1fr 1fr;
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
@@ -62,7 +63,7 @@
                 font-size: 22px;
             }
 
-            .candles-chart,
+            .trading-tracker__candles-panel,
             .trading-tracker__tickers-panel {
                 display: none;
             }
