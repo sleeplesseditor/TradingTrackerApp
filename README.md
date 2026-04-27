@@ -16,6 +16,6 @@ Example of diagnostics popover displayed
 - Use of custom SASS rather than Styled Components for easier debugging
     - Additionally, minor changes in colour palette for better legibility
 - Revised custom tooltip styling, content and layout for Highcharts
-- Revised Tickers component to use a slider setup (provided by (React-Slick)[https://react-slick.neostack.com/]) for better UX
+- Revised Tickers component to use a slider setup (provided by [React-Slick](https://react-slick.neostack.com/) for better UX
 - Improvements to mobile responsiveness for viewing on smaller devices
 - Expansion of unit test coverage using Vitest and Testing-Library/React, as well as improvement of Playwright tests
