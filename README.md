@@ -19,3 +19,4 @@ Example of diagnostics popover displayed
 - Revised Tickers component to use a slider setup (provided by [React-Slick](https://react-slick.neostack.com/) for better UX
 - Improvements to mobile responsiveness for viewing on smaller devices
 - Expansion of unit test coverage using Vitest and Testing-Library/React, as well as improvement of Playwright tests
+- Updated performanceMonitor to use a [Web API popover setup](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API), triggered by 'gear icon' in Header
