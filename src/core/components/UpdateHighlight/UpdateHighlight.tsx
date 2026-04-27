@@ -73,8 +73,16 @@ const AnimatedValue = ({ value, delay = 0, scale = 1, duration = 200 }: Animated
         }
     }, [value]);
 
-    return <span className="update-highlight__container" data-testid="update-highlight" ref={ref}>{value}</span>
-    }
+    return (
+        <span 
+            className="update-highlight__container" 
+            data-testid="update-highlight" 
+            ref={ref}
+        >
+            {value}
+        </span>
+    )
+};
 
 const UpdateHighlight = ({ value, effect = "default" }: Props) => {
     const changedPartRef = React.createRef<HTMLDivElement>();

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { performanceTracker } from "@services/performanceTracker"
-import { Channel } from "../transport/types/Channels"
+import { performanceTracker } from "@services/performanceTracker";
+import { Channel } from "@core/transport/types/Channels";
 
-const ConnectionHealth = {
+export const ConnectionHealth = {
     GOOD: "good",
     WARNING: "warning",
     POOR: "poor",
