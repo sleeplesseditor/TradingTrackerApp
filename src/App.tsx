@@ -37,23 +37,24 @@ const AppContent = () => {
           <TickersContainer />
         </div>
         <div className="trading-tracker__market-panel">
+          <h4 className="panel-header">Market</h4>
           <MarketContainer />
         </div>
         <div className="trading-tracker__trades-panel">
+          <h4 className="panel-header">Trades</h4>
           <TradesContainer />
         </div>
         <div className="trading-tracker__candles-panel">
           <CandlesChartContainer />
         </div>
         <div className="trading-tracker__book-panel">
+          <h4 className="panel-header">Book</h4>
           <BookContainer />
         </div>
         <div className="trading-tracker__depth-panel">
+          <h4 className="panel-header">Depth</h4>
           <DepthChartContainer />
         </div>
-        {/* <div className="trading-tracker__footer">
-          {!import.meta.env.DEV && <PerformanceDashboard />}
-        </div> */}
       </div>
     </div>
   )

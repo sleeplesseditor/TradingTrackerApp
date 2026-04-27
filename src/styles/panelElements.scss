@@ -7,25 +7,31 @@
         width: 100vw;
         height: 100vh;
         overflow: hidden;
+
+        .panel-header {
+            color: variables.$white;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 0px 10px 10px 0px;
+        }
     }
 
     &__content {
         display: grid;
-        grid-gap: 5px;
+        gap: 5px;
         padding: 5px 10px;
         width: 100%;
         height: 100%;
         overflow: hidden;
 
         @media only screen and (min-width: 1200px) {
-            grid-template-rows: 40px 70px 1fr 250px 30px;
+            grid-template-rows: 40px 70px 1fr 250px;
             grid-template-columns: 450px 1fr 1fr;
             grid-template-areas:
                 "header header header"
                 "tickers tickers tickers"
                 "market candles candles"
-                "trades book depth"
-                "footer footer footer";
+                "trades book depth";
         }
 
         @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: portrait) {
@@ -45,8 +51,8 @@
         }
 
          @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
-            grid-template-rows: 40px 40% 45%;
-            grid-template-columns: 55% 45%;
+            grid-template-rows: 40px 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-areas:
                 "header header"
                 "market book"
@@ -60,10 +66,15 @@
             .trading-tracker__tickers-panel {
                 display: none;
             }
+
+            .book-container {
+                height: 90%;
+            }
          }
 
         @media only screen and (max-width: 600px) {
-            grid-template-rows: 40px 30% 30% 33%;
+            gap: 15px;
+            grid-template-rows: 40px 1fr 1fr 1fr;
             grid-template-columns: 100%;
             grid-template-areas:
             "header"
@@ -71,8 +82,12 @@
             "book"
             "candles";
 
-            .trading-tracker__depth-panel {
-                display: none;
+            .trading-tracker {
+                &__depth-panel,
+                &__tickers-panel,
+                &__trades-panel {
+                    display: none;
+                }
             }
         }
     }
@@ -178,10 +193,27 @@
         padding: 0 10px;
     }
 
-    &__book-panel,
-    &__market-panel,
+    // &__book-panel,
+    // &__market-panel,
+
+    &__book-panel {
+        .book-container {
+            border: 1px solid variables.$steelBlue;
+            border-radius: 8px;
+        }
+    }
+
+    &__market-panel {
+        .market-container {
+            border: 1px solid variables.$steelBlue;
+            border-radius: 8px;
+        }
+    }
+
     &__trades-panel {
-        border: 1px solid variables.$steelBlue;
-        border-radius: 8px;
+        .trades-container {
+            border: 1px solid variables.$steelBlue;
+            border-radius: 8px;
+        }
     }
 }
