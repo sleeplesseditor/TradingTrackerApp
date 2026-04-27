@@ -8,10 +8,11 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/setupTests.ts"],
+    include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["node_modules/", "src/setupTests.ts", "**/*.d.ts", "**/*.config.*"],
+      exclude: ["node_modules/", "src/setupTests.ts", "**/*.d.ts", "**/*.config.*", "src/tests"],
       thresholds: {
         global: {
           branches: 80,
