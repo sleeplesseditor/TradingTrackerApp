@@ -54,7 +54,7 @@
 .relative-change__negative,
 .relative-change__positive {
     display: flex;
-    font-family: FiraSans-Medium, sans-serif;
+    font-family: variables.$defaultFont;
     grid-area: relativeChange;
     font-size: 16px;
 }

@@ -99,6 +99,7 @@ const Market = ({ tickers, selectedCurrencyPair }: Props) => {
                     priceRenderer: PriceRenderer,
                 }}
                 getRowId={(params) => params.data.currencyPair}
+                localeText={{ noRowsToShow: "Loading..." }}
                 onGridReady={(event) => {
                     setGridApi(event.api)
                 }}

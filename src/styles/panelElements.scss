@@ -31,10 +31,9 @@
     &__content {
         display: grid;
         gap: 5px;
-        padding: 5px 10px;
         width: 100%;
         height: 100%;
-        overflow: auto;
+        overflow-y: auto;
 
         @media only screen and (min-width: 1200px) {
             grid-template-rows: 40px 70px 1fr 250px;
@@ -63,14 +62,13 @@
 
          @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
             gap: 15px;
-            grid-template-rows: 40px 250px 250px 250px;
-            grid-template-columns: 1fr;
+            grid-template-rows: 40px 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-                "header"
-                "market"
-                "trades"
-                "book";
-            overflow: scroll;
+                "header header"
+                "market trades"
+                "book depth";
+            overflow-y: auto;
             padding: 0px;
 
             .trading-tracker {
@@ -84,28 +82,29 @@
                     padding: 0px 10px;
                 }
 
-                &__depth-panel,
                 &__candles-panel,
                 &__tickers-panel {
                     display: none;
                 }
             }
 
-            .book-container {
+            .book-container,
+            .trades-container {
                 height: 90%;
             }
          }
 
         @media only screen and (max-width: 600px) {
             gap: 15px;
-            grid-template-rows: 40px 1fr 1fr 1fr;
+            grid-template-rows: 40px 250px 250px 250px 250px;
             grid-template-columns: 100%;
             grid-template-areas:
             "header"
             "market"
             "book"
-            "depth";
-            overflow: scroll;
+            "depth"
+            "trades";
+            overflow-y: auto;
             padding: 0px;
 
             .trading-tracker {
@@ -120,8 +119,7 @@
                 }
 
                 &__candles-panel,
-                &__tickers-panel,
-                &__trades-panel {
+                &__tickers-panel {
                     display: none;
                 }
             }
@@ -135,7 +133,7 @@
         grid-area: header;
         color: variables.$white;
         position: relative;
-        overflow: hidden; // keeps animation inside this component
+        overflow: initial; // keeps animation inside this component
         font-family: Gill Sans Extrabold, sans-serif;
         padding: 0 0 0 10px;
         font-size: 28px;
@@ -164,76 +162,58 @@
             }
         }
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
-            animation: shine 4s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
 
         @media only screen and (max-width: 600px) {
             font-size: 22px;
         }
     }
 
+    &__candles-panel,
+    &__depth-panel,
+    &__market-panel,
+    &__book-panel,
+    &__trades-panel {
+        padding: 0px 10px;  
+    }
+
     &__tickers-panel {
         grid-area: tickers;
         overflow: hidden;
-        font-family: FiraSans-Medium, sans-serif;
-    }
-
-    &__market-panel {
-        grid-area: market;
-        font-family: FiraSans-Medium, sans-serif;
-    }
-
-    &__trades-panel {
-        grid-area: trades;
-        font-family: FiraSans-Medium, sans-serif;
+        font-family: variables.$defaultFont;
     }
 
     &__candles-panel {
         grid-area: candles;
-        font-family: FiraSans-Medium, sans-serif;
-    }
-
-    &__book-panel {
-        grid-area: book;
-        font-family: FiraSans-Medium, sans-serif;
+        font-family: variables.$defaultFont;
     }
 
     &__depth-panel {
         grid-area: depth;
-        font-family: FiraSans-Medium, sans-serif;
+        font-family: variables.$defaultFont;
     }
 
     &__book-panel {
+        grid-area: book;
+        font-family: variables.$defaultFont;
+
         .book-container {
             @include panel-borders;
         }
     }
 
     &__market-panel {
+        grid-area: market;
+        font-family: variables.$defaultFont;
+
         .market-container {
             @include panel-borders;
         }
     }
 
     &__trades-panel {
+        grid-area: trades;
+        font-family: variables.$defaultFont;
+
         .trades-container {
             @include panel-borders;
         }
