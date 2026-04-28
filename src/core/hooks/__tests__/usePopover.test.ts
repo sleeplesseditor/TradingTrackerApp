@@ -31,8 +31,7 @@ describe('usePopover', () => {
         act(() => {
             result.current.open();
         });
-        expect(result.current.isOpen).toBe(true);
-    });
+        expect(result.current.isOpen).toBe(true);    });
 
     it('should close the popover when close is called', () => {
         const { result } = renderHook(() => usePopover({ defaultOpen: true }));

@@ -35,24 +35,8 @@ export const usePopover = <T extends HTMLElement = HTMLElement>({
             return;
         }
 
-        const triggerRect = trigger.getBoundingClientRect();
-        const popoverRect = popover.getBoundingClientRect();
-
-        let top = triggerRect.bottom + offset;
-        let left = triggerRect.left;
-
-        if (placement.startsWith('top')) {
-            top = triggerRect.top - popoverRect.height - offset;
-        }
-
-        if (placement.endsWith('end')) {
-            left = triggerRect.right - popoverRect.width;
-        }
-
         setPopoverStyle((current) => ({
             ...current,
-            top,
-            left,
             visibility: isOpen ? 'visible' : 'hidden',
         }));
     }, [isOpen, offset, placement]);
