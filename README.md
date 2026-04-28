@@ -20,6 +20,11 @@ Example of active dashboard with candlestick plot tooltips
 <img width="1439" height="676" alt="Screenshot 2026-04-22 at 10 34 38" src="https://github.com/user-attachments/assets/94ec14f1-c510-4584-b460-491fcba36a0e" />
 Example of diagnostics popover displayed
 
+<img width="1100" height="472" alt="IMG_3856" src="https://github.com/user-attachments/assets/e15a9f73-9a7c-4a1d-8f39-d37510fe5f48" />
+
+<img width="586" height="1085" alt="IMG_3855" src="https://github.com/user-attachments/assets/9c7103c5-cc65-488e-920b-eb4bc26b6c26" />
+Examples of active dashboard on mobile device in landscape and portrait modes
+
 ## Changes from Original Project
 - Use of custom SASS rather than Styled Components for easier debugging
     - Additionally, minor changes in colour palette for better legibility
