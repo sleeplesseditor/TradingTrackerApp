@@ -53,9 +53,7 @@
                 "header header"
                 "market book"
                 "market book"
-                "trades depth"
-                "footer footer";
-
+                "trades depth";
 
             .trading-tracker__tickers-panel,
             .candles-chart {
@@ -106,7 +104,7 @@
             "header"
             "market"
             "book"
-            "candles";
+            "depth";
             overflow: scroll;
             padding: 0px;
 
@@ -117,11 +115,11 @@
 
                 &__market-panel,
                 &__book-panel,
-                &__candles-panel {
+                &__depth-panel {
                     padding: 0px 10px;
                 }
 
-                &__depth-panel,
+                &__candles-panel,
                 &__tickers-panel,
                 &__trades-panel {
                     display: none;
