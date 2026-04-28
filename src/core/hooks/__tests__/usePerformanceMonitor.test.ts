@@ -1,4 +1,4 @@
-import { ConnectionHealth, usePerformanceMonitor } from "../usePerformanceMonitor";
+import { ConnectionHealth, usePerformanceMonitor } from "@core/hooks/usePerformanceMonitor";
 import { performanceTracker } from "@services/performanceTracker";
 import { Channel } from "@core/transport/types/Channels";
 import { renderHook } from "@testing-library/react";

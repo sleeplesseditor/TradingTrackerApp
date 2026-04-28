@@ -1,4 +1,4 @@
-import { usePrevious } from "../usePrevious";
+import { usePrevious } from "@core/hooks/usePrevious";
 import { renderHook } from "@testing-library/react";
 
 describe('usePrevious', () => {

@@ -131,7 +131,7 @@ const DepthChart = ({ depth }: Props) => {
       tooltip: {
         shared: false,
         useHTML: true,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         borderColor: '#333',
         borderRadius: 5,
         style: {
@@ -140,7 +140,10 @@ const DepthChart = ({ depth }: Props) => {
         },
         formatter: function() {
           const seriesName = this.series.name.charAt(0).toUpperCase() + this.series.name.slice(1);
-          return `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background-color:${this.series.color};margin-right:5px;"></span><b>${seriesName}</b><br/><b>Price:</b> ${String(this.category).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<br/><b>Depth:</b> ${this.y}`;
+          return `<div style="background:#ffffff;color:#000;padding:8px 10px;border-radius:6px;border:1px solid #333;display:inline-block;">
+            <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background-color:${this.series.color};margin-right:5px;"></span>
+            <b>${seriesName}</b><br/><b>Price:</b> ${String(this.category).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<br/><b>Depth:</b> ${this.y}
+          </div>`;
         }
       },
       series: [

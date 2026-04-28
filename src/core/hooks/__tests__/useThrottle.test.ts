@@ -1,4 +1,4 @@
-import { useThrottle } from "../useThrottle";
+import { useThrottle } from "@core/hooks/useThrottle";
 import { renderHook } from "@testing-library/react";
 
 describe("useThrottle", () => {

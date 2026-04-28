@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Provider, useDispatch } from 'react-redux';
 import getStore,{ type AppDispatch } from "@modules/redux/store";
 import { bootstrapApp } from '@modules/app/slice';
+import { usePopover } from '@core/hooks/usePopover';
 import '@styles/panelElements.scss';
 
 import CandlesChartContainer from '@modules/candles/components/CandlesChartContainer';
@@ -16,6 +17,10 @@ const store = getStore();
 
 const AppContent = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { isOpen, toggle, triggerRef, popoverRef, popoverStyle } = usePopover<HTMLButtonElement>({
+    placement: 'bottom-end',
+    offset: 8,
+  });
 
   React.useEffect(() => {
     dispatch(bootstrapApp())
@@ -26,12 +31,29 @@ const AppContent = () => {
       <div className="trading-tracker__content">
         <div className="trading-tracker__header">
           <span>Bitfinex Trading Tracker</span>
-          <button className="settings-icon" popoverTarget="mypopover">
-            <i className="material-icons">settings</i>
-          </button>
-          <div id="mypopover" className="popover" popover="auto">
-            {import.meta.env.DEV && <PerformanceDashboard />}
-          </div>
+          {import.meta.env.DEV && (
+            <React.Fragment>
+              <button
+                aria-controls="performancePopover"
+                aria-expanded={isOpen}
+                className="settings-icon"
+                onClick={toggle}
+                ref={triggerRef}
+                type="button"
+              >
+                <i className="material-icons">settings</i>
+              </button>
+              <div
+                aria-hidden={!isOpen}
+                className={`popover ${isOpen ? 'popover--open' : ''}`}
+                id="performancePopover"
+                ref={popoverRef}
+                style={popoverStyle}
+              >
+                <PerformanceDashboard />
+              </div>
+            </React.Fragment>
+          )}
         </div>
         <div className="trading-tracker__tickers-panel">
           <TickersContainer />

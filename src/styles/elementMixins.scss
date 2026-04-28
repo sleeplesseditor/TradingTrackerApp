@@ -13,3 +13,25 @@
         align-items: $align;
     }
 };
+
+@mixin highChartsTooltips {
+    .highcharts-tooltip {
+        font-family: sans-serif;
+        
+        > div > span {
+            background: white !important;
+            padding: 5px !important;
+            border-radius: 5px !important;
+        }
+
+        .highcharts-tooltip-box {
+            path { 
+                fill: white !important; 
+            }
+
+            text { 
+                fill: black !important; 
+            }   
+        }
+    }
+}
